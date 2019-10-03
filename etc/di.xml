@@ -2,17 +2,4 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Rich\LoginHistory\Api\Data\LoginRecordInterface" type="Rich\LoginHistory\Model\LoginRecord" />
     <preference for="Rich\LoginHistory\Api\LoginRecordRepositoryInterface" type="Rich\LoginHistory\Model\LoginRecordRepository" />
-    <virtualType name="Rich\LoginHistory\Model\ResourceModel\LoginRecord\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
-        <arguments>
-            <argument name="mainTable" xsi:type="string">login_history</argument>
-            <argument name="resourceModel" xsi:type="string">Rich\LoginHistory\Model\ResourceModel\LoginRecord</argument>
-        </arguments>
-    </virtualType>
-    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
-        <arguments>
-            <argument name="collections" xsi:type="array">
-                <item name="login_history_listing_data_source" xsi:type="string">Rich\LoginHistory\Model\ResourceModel\LoginRecord\Grid\Collection</item>
-            </argument>
-        </arguments>
-    </type>
 </config>
