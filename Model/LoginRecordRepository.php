@@ -60,7 +60,7 @@ class LoginRecordRepository implements LoginRecordRepositoryInterface
             $this->resourceModel->save($loginRecord);
         } catch (\Exception $e) {
             throw new CouldNotSaveException(
-                __('The "%1" checkout agreement couldn\'t be saved.', $loginRecord->getId())
+                __('The "%1" login record couldn\'t be saved.', $loginRecord->getId())
             );
         }
         return $loginRecord;

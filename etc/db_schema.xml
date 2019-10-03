@@ -8,7 +8,6 @@
         <column xsi:type="varchar" name="user_agent" nullable="false" length="32" comment="User Agent"/>
         <column xsi:type="timestamp" name="login_date" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
                 comment="Login Timestamp"/>
-        <column xsi:type="datetime" name="login_datetime" on_update="false" nullable="false" comment="Login Datetime"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="login_id"/>
         </constraint>
