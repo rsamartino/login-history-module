@@ -39,6 +39,7 @@ class SaveLoginHistory
 
         $loginRecord->setIpAddress($this->remoteAddress->getRemoteAddress());
         $loginRecord->setUserAgent($this->httpHeader->getHttpUserAgent());
+        $loginRecord->setCustomerId($subject->getCustomerId());
 
         $this->loginRecordRepository->save($loginRecord);
 

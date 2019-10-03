@@ -35,6 +35,11 @@ class LoginRecord extends AbstractModel implements LoginRecordInterface, Identit
         return $this->getData(self::LOGIN_DATE);
     }
 
+    public function getCustomerId()
+    {
+        return $this->getData(self::CUSTOMER_ID);
+    }
+
     public function setIpAddress($ipAddress)
     {
         return $this->setData(self::IP_ADDRESS, $ipAddress);
@@ -43,5 +48,10 @@ class LoginRecord extends AbstractModel implements LoginRecordInterface, Identit
     public function setUserAgent($userAgent)
     {
         return $this->setData(self::USER_AGENT, $userAgent);
+    }
+
+    public function setCustomerId($customerId)
+    {
+        return $this->setData(self::CUSTOMER_ID, $customerId);
     }
 }
