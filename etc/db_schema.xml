@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="login_history" resource="default" engine="innodb" comment="Login History Table">
+        <column xsi:type="int" name="login_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Entity ID"/>
+        <column xsi:type="varchar" name="ip_address" nullable="false" length="32" comment="IP Address"/>
+        <column xsi:type="varchar" name="user_agent" nullable="false" length="32" comment="User Agent"/>
+        <column xsi:type="timestamp" name="login_timestamp" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Login Timestamp"/>
+        <column xsi:type="datetime" name="login_datetime" on_update="false" nullable="false" comment="Login Datetime"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="login_id"/>
+        </constraint>
+    </table>
+</schema>
