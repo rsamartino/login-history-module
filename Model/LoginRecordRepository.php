@@ -3,8 +3,8 @@
 namespace Rich\LoginHistory\Model;
 
 use Rich\LoginHistory\Api\Data\LoginRecordInterface;
+use Rich\LoginHistory\Api\Data\LoginRecordInterfaceFactory;
 use Rich\LoginHistory\Api\LoginRecordRepositoryInterface;
-use Rich\LoginHistory\Model\LoginRecordFactory;
 use Rich\LoginHistory\Model\ResourceModel\LoginRecord as LoginRecordResource;
 use Rich\LoginHistory\Model\ResourceModel\LoginRecord\CollectionFactory;
 
@@ -37,7 +37,7 @@ class LoginRecordRepository implements LoginRecordRepositoryInterface
     public function __construct(
         CollectionFactory $collectionFactory,
         CollectionProcessorInterface $collectionProcessor,
-        LoginRecordFactory $loginRecordFactory,
+        LoginRecordInterfaceFactory $loginRecordFactory,
         LoginRecordResource $resourceModel,
         SearchResultsInterfaceFactory $searchResultsFactory
     )
