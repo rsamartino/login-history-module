@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">login_history_listing.login_history_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>login_history_columns</spinner>
+        <deps>
+            <dep>login_history_listing.login_history_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="login_history_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">login_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="login_history_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>login_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <columns name="login_history_columns">
+        <column name="login_id">
+            <settings>
+                <label translate="true">ID</label>
+            </settings>
+        </column>
+        <column name="ip_address">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">IP Address</label>
+            </settings>
+        </column>
+        <column name="user_agent">
+            <settings>
+                <label translate="true">User Agent</label>
+            </settings>
+        </column>
+        <column name="login_date">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Login Date</label>
+            </settings>
+        </column>
+    </columns>
+</listing>
