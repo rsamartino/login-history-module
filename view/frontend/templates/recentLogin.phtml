@@ -1,0 +1,18 @@
+<?php
+
+/** @var \Rich\LoginHistory\ViewModel\RecentLoginProvider $viewModel */
+
+$viewModel = $block->getViewModel();
+
+$recentLogin = $viewModel->getRecentLogin();
+?>
+
+<?php if($recentLogin): ?>
+<h3><?= __('Your most recent login:')?></h3>
+
+<p><?= __('IP Address: ') . $recentLogin->getIpAddress() ?></p>
+<p><?= __('Date: ') . date('n/j/y G:i:s', strtotime($recentLogin->getLoginDate())) ?></p>
+
+<?php else: //first login?>
+<h3>Welcome!</h3>
+<?php endif;?>

@@ -77,6 +77,10 @@ class LoginRecordRepository implements LoginRecordRepositoryInterface
         return $loginRecord;
     }
 
+    /**
+     * @param SearchCriteriaInterface $searchCriteria
+     * @return \Magento\Framework\Api\SearchResultsInterface
+     */
     public function getList(SearchCriteriaInterface $searchCriteria)
     {
         /** @var \Rich\LoginHistory\Model\ResourceModel\LoginRecord\Collection $collection */
