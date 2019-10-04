@@ -5,7 +5,8 @@
             "ip_address": true,
             "user_agent": true,
             "login_date": true,
-            "customer_id": true
+            "customer_id": true,
+            "ip_location": true
         },
         "constraint": {
             "PRIMARY": true,

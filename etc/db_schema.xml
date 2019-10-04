@@ -6,6 +6,7 @@
                 comment="Entity ID"/>
         <column xsi:type="varchar" name="ip_address" nullable="false" length="32" comment="IP Address"/>
         <column xsi:type="varchar" name="user_agent" nullable="false" length="32" comment="User Agent"/>
+        <column xsi:type="varchar" name="ip_location" nullable="true" length="32" comment="IP Country"/>
         <column xsi:type="timestamp" name="login_date" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
                 comment="Login Timestamp"/>
         <column xsi:type="int" name="customer_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Customer ID"/>

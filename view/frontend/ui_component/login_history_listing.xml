@@ -66,5 +66,11 @@
                 <label translate="true">Login Date</label>
             </settings>
         </column>
+        <column name="ip_location">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">IP Location</label>
+            </settings>
+        </column>
     </columns>
 </listing>
