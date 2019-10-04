@@ -14,22 +14,57 @@ use Psr\Log\LoggerInterface;
 
 class SaveLoginHistory
 {
+    /**
+     * @var Config
+     */
     private $config;
 
+    /**
+     * @var Curl
+     */
     private $curlClient;
 
+    /**
+     * @var HttpHeader
+     */
     private $httpHeader;
 
+    /**
+     * @var LoggerInterface
+     */
     private $logger;
 
+    /**
+     * @var LoginRecordInterfaceFactory
+     */
     private $loginRecordFactory;
 
+    /**
+     * @var LoginRecordRepositoryInterface
+     */
     private $loginRecordRepository;
 
+    /**
+     * @var RemoteAddress
+     */
     private $remoteAddress;
 
+    /**
+     * @var Json
+     */
     private $serializer;
 
+    /**
+     * SaveLoginHistory constructor.
+     * @param Config $config
+     * @param Curl $curlClient
+     * @param HttpHeader $httpHeader
+     * @param LoggerInterface $logger
+     * @param LoginRecordInterfaceFactory $loginRecordFactory
+     * @param LoginRecordRepositoryInterface $loginRecordRepository
+     * @param RemoteAddress $remoteAddress
+     * @param Json $serializer
+     */
     public function __construct(
         Config $config,
         Curl $curlClient,
@@ -52,6 +87,11 @@ class SaveLoginHistory
     }
 
 
+    /**
+     * @param \Magento\Customer\Model\Session $subject
+     * @param $result
+     * @return mixed
+     */
     public function afterSetCustomerDataAsLoggedIn(\Magento\Customer\Model\Session $subject, $result)
     {
         /** @var LoginRecordInterface $loginRecord */
@@ -68,6 +108,10 @@ class SaveLoginHistory
         return $result;
     }
 
+    /**
+     * @param $ipAddress
+     * @return string|null
+     */
     private function getIpLocation($ipAddress)
     {
         $accessKey = $this->config->getGeoIpApiKey();

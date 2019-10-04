@@ -30,25 +30,28 @@ class MassDelete extends \Magento\Framework\App\Action\Action implements HttpPos
      */
     protected $collectionFactory;
 
+    /**
+     * @var LoginRecordRepositoryInterface
+     */
     private $loginRecordRepository;
 
-
     /**
+     * MassDelete constructor.
+     * @param CollectionFactory $collectionFactory
      * @param Context $context
-     * @param PageFactory $resultPageFactory
+     * @param Filter $filter
+     * @param LoginRecordRepositoryInterface $loginRecordRepository
      */
     public function __construct(
         CollectionFactory $collectionFactory,
         Context $context,
         Filter $filter,
         LoginRecordRepositoryInterface $loginRecordRepository
-//        PageFactory $resultPageFactory
     ) {
         parent::__construct($context);
         $this->collectionFactory = $collectionFactory;
         $this->filter = $filter;
         $this->loginRecordRepository = $loginRecordRepository;
-//        $this->resultPageFactory = $resultPageFactory;
     }
 
     /**
@@ -71,7 +74,9 @@ class MassDelete extends \Magento\Framework\App\Action\Action implements HttpPos
     }
 
     /**
-     * @return \Magento\Framework\View\Result\Page
+     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface
+     * @throws \Magento\Framework\Exception\CouldNotDeleteException
+     * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function execute()
     {

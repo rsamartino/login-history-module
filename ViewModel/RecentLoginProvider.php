@@ -9,11 +9,30 @@ use Magento\Framework\Api\SortOrderBuilder;
 
 class RecentLoginProvider implements \Magento\Framework\View\Element\Block\ArgumentInterface
 {
+    /**
+     * @var \Magento\Customer\Model\Session
+     */
     private $customerSession;
+    /**
+     * @var LoginRecordRepositoryInterface
+     */
     private $loginRecordRepository;
+    /**
+     * @var SearchCriteriaBuilder
+     */
     private $searchCriteriaBuilder;
+    /**
+     * @var SortOrderBuilder
+     */
     private $sortOrderBuilder;
 
+    /**
+     * RecentLoginProvider constructor.
+     * @param \Magento\Customer\Model\Session $customerSession
+     * @param LoginRecordRepositoryInterface $loginRecordRepository
+     * @param SearchCriteriaBuilder $searchCriteriaBuilder
+     * @param SortOrderBuilder $sortOrderBuilder
+     */
     public function __construct(
         \Magento\Customer\Model\Session $customerSession,
         LoginRecordRepositoryInterface $loginRecordRepository,

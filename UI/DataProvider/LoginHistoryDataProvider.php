@@ -10,8 +10,24 @@ use Magento\Framework\App\RequestInterface;
 
 class LoginHistoryDataProvider extends \Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider
 {
+    /**
+     * @var CustomerSession
+     */
     private $customerSession;
 
+    /**
+     * LoginHistoryDataProvider constructor.
+     * @param CustomerSession $customerSession
+     * @param $name
+     * @param $primaryFieldName
+     * @param $requestFieldName
+     * @param ReportingInterface $reporting
+     * @param SearchCriteriaBuilder $searchCriteriaBuilder
+     * @param RequestInterface $request
+     * @param FilterBuilder $filterBuilder
+     * @param array $meta
+     * @param array $data
+     */
     public function __construct(
         CustomerSession $customerSession,
         $name,
@@ -41,6 +57,9 @@ class LoginHistoryDataProvider extends \Magento\Framework\View\Element\UiCompone
         $this->addCustomerFilter();
     }
 
+    /**
+     * filter records by current customer
+     */
     private function addCustomerFilter()
     {
         $customerFilter = $this->filterBuilder

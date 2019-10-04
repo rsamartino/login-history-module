@@ -28,12 +28,29 @@ class LoginRecordRepository implements LoginRecordRepositoryInterface
      */
     private $collectionProcessor;
 
+    /**
+     * @var LoginRecordInterfaceFactory
+     */
     private $loginRecordFactory;
 
+    /**
+     * @var LoginRecordResource
+     */
     private $resourceModel;
 
+    /**
+     * @var SearchResultsInterfaceFactory
+     */
     private $searchResultsFactory;
 
+    /**
+     * LoginRecordRepository constructor.
+     * @param CollectionFactory $collectionFactory
+     * @param CollectionProcessorInterface $collectionProcessor
+     * @param LoginRecordInterfaceFactory $loginRecordFactory
+     * @param LoginRecordResource $resourceModel
+     * @param SearchResultsInterfaceFactory $searchResultsFactory
+     */
     public function __construct(
         CollectionFactory $collectionFactory,
         CollectionProcessorInterface $collectionProcessor,
@@ -66,6 +83,11 @@ class LoginRecordRepository implements LoginRecordRepositoryInterface
         return $loginRecord;
     }
 
+    /**
+     * @param int $id
+     * @return LoginRecordInterface|LoginRecord
+     * @throws NoSuchEntityException
+     */
     public function getById($id)
     {
         /** @var LoginRecord $loginRecord */
@@ -113,8 +135,8 @@ class LoginRecordRepository implements LoginRecordRepositoryInterface
     }
 
     /**
-     * @param $id
-     * @return bool
+     * @param int $id
+     * @return bool true on success
      * @throws CouldNotDeleteException
      * @throws NoSuchEntityException
      */

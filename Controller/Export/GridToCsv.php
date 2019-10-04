@@ -9,6 +9,9 @@ use Magento\Ui\Component\MassAction\Filter;
 use Magento\Ui\Model\Export\ConvertToCsv;
 use Psr\Log\LoggerInterface;
 
+/**
+ * copy over Magento\Ui\Controller\Adminhtml\Export\GridToCsv for frontend use
+ */
 class GridToCsv extends \Magento\Framework\App\Action\Action
 {
     /**
