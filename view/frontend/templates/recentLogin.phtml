@@ -10,6 +10,10 @@ $recentLogin = $viewModel->getRecentLogin();
 <p><?= __('IP Address: ') . $recentLogin->getIpAddress() ?></p>
 <p><?= __('Date: ') . date('n/j/y G:i:s', strtotime($recentLogin->getLoginDate())) ?></p>
 
+    <?php if($recentLogin->getIpLocation()): ?>
+        <p><?= __('Country: ') . $recentLogin->getIpLocation() ?></p>
+    <?php endif; ?>
+
 <?php else: //first login ?>
 <h3>Welcome!</h3>
 
